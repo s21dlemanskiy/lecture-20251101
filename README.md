@@ -14,3 +14,6 @@ uv run suscriber.py
 ```
 uv run publisher.py
 ```
+
+Пример работы:
+![alt text](image.png)
