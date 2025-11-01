@@ -13,7 +13,7 @@ consumer = KafkaConsumer(
     group_id='python-consumer',
     bootstrap_servers='localhost:9092',
     auto_offset_reset='earliest',
-    enable_auto_commit=True
+    enable_auto_commit=False
 )
 
 consumer.subscribe(['test'], listener=Listener())
@@ -25,3 +25,4 @@ consumer.subscribe(['test'], listener=Listener())
 print("Starting Kafka consumer...")
 for message in consumer:
     print(f"Received message: {message.value.decode('utf-8')}")
+    consumer.commit_async()
